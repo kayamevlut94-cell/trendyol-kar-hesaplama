@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trendyol Kâr Hesaplama 2026 – Komisyon, Kargo, KDV ve Stopaj Dahil Net Kâr</title>
+<meta name="description" content="Ücretsiz Trendyol ve Hepsiburada kâr hesaplama aracı: komisyon, kargo, hizmet bedeli, KDV ve %1 e-ticaret stopajı sonrası net kâr, başabaş fiyat ve önerilen satış fiyatı.">
+<meta property="og:title" content="Trendyol Kâr Hesaplama – Ücretsiz Net Kâr Aracı">
+<meta property="og:description" content="Komisyon, kargo, KDV ve stopaj sonrası ürün başına gerçek kârınızı saniyede görün.">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Trendyol'da net kâr nasıl hesaplanır?","acceptedAnswer":{"@type":"Answer","text":"KDV hariç satış tutarından KDV hariç ürün maliyeti, komisyon, kargo, platform hizmet bedeli ve paketleme gibi diğer giderler çıkarılır. Komisyon, KDV dahil satış fiyatı üzerinden hesaplanır."}},
+{"@type":"Question","name":"Stopaj kârımdan düşülür mü?","acceptedAnswer":{"@type":"Answer","text":"Pazaryerinin kestiği %1 e-ticaret stopajı nakit olarak hesabınıza daha az para yatmasına neden olur, ancak bir maliyet değil peşin vergidir; yıllık gelir veya kurumlar vergisinden mahsup edilir."}},
+{"@type":"Question","name":"Başabaş fiyat nedir?","acceptedAnswer":{"@type":"Answer","text":"Tüm kesintilerden sonra kârın sıfır olduğu KDV dahil satış fiyatıdır. Bu fiyatın altında satılan her ürün zarar ettirir."}},
+{"@type":"Question","name":"Komisyon oranımı nereden öğrenirim?","acceptedAnswer":{"@type":"Answer","text":"Komisyon oranı kategoriye göre değişir. Güncel oranı satıcı panelinizdeki kategori komisyon listesinden kontrol edin ve hesaplayıcıya girin."}}
+]}
+</script>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#1d2330;--muted:#5d6678;--line:#e2e5eb;--accent:#f27a1a;--good:#1a8f4e;--bad:#c62f2f;--field:#fffbe6}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14171d;--card:#1d2129;--ink:#e9ecf2;--muted:#9aa3b5;--line:#2e3440;--field:#262b35}}
+:root[data-theme="dark"]{--bg:#14171d;--card:#1d2129;--ink:#e9ecf2;--muted:#9aa3b5;--line:#2e3440;--field:#262b35}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:24px 16px 48px}
+h1{font-size:26px;margin:0 0 4px}
+.sub{color:var(--muted);margin:0 0 20px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:760px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.card h2{font-size:16px;margin:0 0 12px}
+label{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:6px 0;border-bottom:1px dashed var(--line)}
+label span{flex:1}
+label small{display:block;color:var(--muted);font-size:12px}
+input,select{width:130px;padding:7px 9px;border:1px solid var(--line);border-radius:8px;background:var(--field);color:var(--ink);font:inherit;text-align:right}
+.row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line)}
+.row b{font-variant-numeric:tabular-nums}
+.big{font-size:30px;font-weight:700;margin:4px 0}
+.pos{color:var(--good)}.neg{color:var(--bad)}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
+.kpi{background:var(--bg);border-radius:10px;padding:10px}
+.kpi div:first-child{font-size:12px;color:var(--muted)}
+.kpi div:last-child{font-size:18px;font-weight:700}
+.note{font-size:13px;color:var(--muted);margin-top:16px}
+.cta{margin-top:16px;padding:14px;border-radius:10px;border:2px dashed var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Trendyol Kâr Hesaplama (Hepsiburada, n11, Amazon için de)</h1>
+<p class="sub">Trendyol, Hepsiburada, n11 ve Amazon satıcıları için: komisyon, kargo, hizmet bedeli, KDV ve %1 stopaj sonrası ürün başına <b>gerçek</b> kazancınız.</p>
+
+<div class="grid">
+<div class="card">
+<h2>Ürün bilgileri</h2>
+<label><span>Satış fiyatı (KDV dahil, ₺)</span><input id="P" type="number" value="500" step="0.01"></label>
+<label><span>Satış KDV oranı</span><select id="k"><option value="0.20">%20</option><option value="0.10">%10</option><option value="0.01">%1</option><option value="0">%0</option></select></label>
+<label><span>Ürün alış maliyeti (KDV dahil, ₺)</span><input id="M" type="number" value="220" step="0.01"></label>
+<label><span>Alış KDV oranı</span><select id="ka"><option value="0.20">%20</option><option value="0.10">%10</option><option value="0.01">%1</option><option value="0">%0 / faturasız</option></select></label>
+<h2 style="margin-top:16px">Pazaryeri kesintileri</h2>
+<label><span>Komisyon oranı (%)<small>Kategorinize göre panelden bakın</small></span><input id="c" type="number" value="18" step="0.1"></label>
+<label><span>Kargo ücreti (KDV hariç, ₺)</span><input id="kg" type="number" value="55" step="0.01"></label>
+<label><span>Platform hizmet bedeli (KDV hariç, ₺)</span><input id="hb" type="number" value="8.49" step="0.01"></label>
+<label><span>Stopaj oranı (%)<small>E-ticaret stopajı, KDV hariç tutar üzerinden</small></span><input id="st" type="number" value="1" step="0.1"></label>
+<label><span>Paketleme + diğer gider (₺)</span><input id="ek" type="number" value="10" step="0.01"></label>
+<label><span>Hedef kâr marjı (%)<small>Önerilen fiyat için</small></span><input id="hm" type="number" value="20" step="1"></label>
+</div>
+
+<div class="card">
+<h2>Sonuç (ürün başına)</h2>
+<div>Net kâr (vergi öncesi)</div>
+<div class="big" id="kar">–</div>
+<div class="kpis">
+<div class="kpi"><div>Kâr marjı</div><div id="marj">–</div></div>
+<div class="kpi"><div>Başabaş fiyat</div><div id="bas">–</div></div>
+<div class="kpi"><div>Önerilen fiyat</div><div id="oner">–</div></div>
+</div>
+<div class="row"><span>Satış (KDV hariç)</span><b id="r1"></b></div>
+<div class="row"><span>− Ürün maliyeti (KDV hariç)</span><b id="r2"></b></div>
+<div class="row"><span>− Komisyon</span><b id="r3"></b></div>
+<div class="row"><span>− Kargo</span><b id="r4"></b></div>
+<div class="row"><span>− Hizmet bedeli</span><b id="r5"></b></div>
+<div class="row"><span>− Paketleme / diğer</span><b id="r6"></b></div>
+<h2 style="margin-top:16px">Nakit ve vergi</h2>
+<div class="row"><span>Hesabınıza yatacak tutar</span><b id="n1"></b></div>
+<div class="row"><span>Kesilen stopaj <small>(gelir vergisinden mahsup edilir)</small></span><b id="n2"></b></div>
+<div class="row"><span>Bu üründen doğan KDV farkı</span><b id="n3"></b></div>
+<div class="cta"><b>Yüzlerce ürününüz mü var?</b><br>Tüm ürünlerinizi tek seferde hesaplayan, zarar eden ürünleri kırmızıyla gösteren <b>Excel / Google Sheets Kârlılık Paneli</b> yakında.</div>
+</div>
+</div>
+
+<section class="card" style="margin-top:16px">
+<h2>Trendyol'da net kâr nasıl hesaplanır?</h2>
+<p>Pazaryerinde ciro yüksek görünse de hesabınıza yatan para çoğu zaman beklenenden azdır. Çünkü her satıştan şu kalemler düşer:</p>
+<ul>
+<li><b>Komisyon:</b> KDV dahil satış fiyatı × kategori komisyon oranı (ör. %15–%25).</li>
+<li><b>Kargo:</b> Ürünün desisine göre kargo ücreti.</li>
+<li><b>Platform hizmet bedeli:</b> Sipariş başına alınan sabit bedel.</li>
+<li><b>KDV:</b> Komisyon, kargo ve hizmet bedeli faturalarına %20 KDV eklenir; bu KDV indirilebilir.</li>
+<li><b>%1 e-ticaret stopajı:</b> KDV hariç satış tutarı üzerinden kesilir; maliyet değil, vergiden mahsup edilen peşin vergidir.</li>
+</ul>
+<p><b>Formül:</b> Net kâr = KDV hariç satış − KDV hariç ürün maliyeti − komisyon − kargo − hizmet bedeli − diğer giderler.</p>
+<h2>Örnek</h2>
+<p>500 ₺'ye (KDV %20 dahil) satılan, 220 ₺'ye alınan bir ürün; %18 komisyon, 55 ₺ kargo ve 8,49 ₺ hizmet bedeliyle ürün başına yaklaşık <b>69,85 ₺</b> net kâr bırakır. Kâr marjı yaklaşık %16,8'dir. Aynı ürün 350 ₺'ye satılsaydı zarar ederdi. Bu yüzden her ürünün başabaş fiyatını bilmek gerekir.</p>
+<h2>Sık sorulan sorular</h2>
+<p><b>Stopaj kârımdan düşülür mü?</b><br>Nakit olarak evet, hesabınıza daha az para yatar. Ama stopaj bir gider değil, yıllık vergiden mahsup edilen peşin vergidir.</p>
+<p><b>Başabaş fiyat nedir?</b><br>Tüm kesintilerden sonra kârın sıfır olduğu satış fiyatıdır. Altında satılan her ürün zarar ettirir.</p>
+<p><b>Komisyon oranımı nereden öğrenirim?</b><br>Satıcı panelinizdeki kategori komisyon listesinden. Oranlar kategoriye ve kampanyaya göre değişir.</p>
+<p><b>Hepsiburada ve n11 için de kullanabilir miyim?</b><br>Evet. Komisyon, kargo ve hizmet bedeli alanlarına o pazaryerinin değerlerini girmeniz yeterli.</p>
+</section>
+
+<p class="note">Komisyon, kargo ve hizmet bedeli tutarları kategoriye, desiye ve pazaryerine göre değişir; kendi satıcı panelinizdeki güncel değerleri girin. Komisyon KDV dahil satış fiyatı üzerinden, komisyon/kargo/hizmet bedeline %20 KDV eklenerek hesaplanır. Sonuçlar bilgilendirme amaçlıdır, mali tavsiye değildir; vergi işlemleriniz için mali müşavirinize danışın.</p>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const tl=v=>v.toLocaleString('tr-TR',{style:'currency',currency:'TRY'});
+function calc(){
+  const P=+$('P').value||0,k=+$('k').value,M=+$('M').value||0,ka=+$('ka').value,
+        c=(+$('c').value||0)/100,kg=+$('kg').value||0,hb=+$('hb').value||0,
+        st=(+$('st').value||0)/100,ek=+$('ek').value||0,hm=(+$('hm').value||0)/100,V=0.20;
+  const satis=P/(1+k), maliyet=M/(1+ka), kom=P*c;
+  const kar=satis-maliyet-kom-kg-hb-ek;
+  const marj=satis>0?kar/satis:0;
+  const sabit=maliyet+kg+hb+ek;
+  const bas=sabit/(1/(1+k)-c);
+  const den=(1-hm)/(1+k)-c;
+  const oner=den>0?sabit/den:NaN;
+  const stopaj=satis*st;
+  const yatan=P-(kom+kg+hb)*(1+V)-stopaj;
+  const kdv=(P-satis)-(M-maliyet)-(kom+kg+hb)*V;
+  $('kar').textContent=tl(kar);$('kar').className='big '+(kar>=0?'pos':'neg');
+  $('marj').textContent='%'+(marj*100).toFixed(1);
+  $('bas').textContent=bas>0&&isFinite(bas)?tl(bas):'–';
+  $('oner').textContent=isFinite(oner)&&oner>0?tl(oner):'–';
+  [['r1',satis],['r2',maliyet],['r3',kom],['r4',kg],['r5',hb],['r6',ek]].forEach(([i,v])=>$(i).textContent=tl(v));
+  $('n1').textContent=tl(yatan);$('n2').textContent=tl(stopaj);
+  $('n3').textContent=kdv>=0?tl(kdv)+' ödenecek':tl(-kdv)+' devreden';
+}
+document.querySelectorAll('input,select').forEach(e=>e.addEventListener('input',calc));
+calc();
+</script>
+</body>
+</html>
